@@ -9,12 +9,18 @@ case "$THEME" in
 	cp ~/.config/switchers/colorschemes/Gruvbox/kitty/colors.conf ~/.config/kitty/colors/custom
 
 	cp ~/.config/switchers/colorschemes/Gruvbox/rofi/colors.rasi ~/.config/rofi/colors/
+	cp ~/.config/switchers/colorschemes/Gruvbox/rofi/style-2.rasi ~/.config/rofi/
 
 	cp ~/.config/switchers/colorschemes/Gruvbox/swaync/colors.css ~/.config/swaync/
 	cp ~/.config/switchers/colorschemes/Gruvbox/swaync/style.css ~/.config/swaync/
 
 	cp ~/.config/switchers/colorschemes/Gruvbox/waybar/colors.css ~/.config/waybar/
 	cp ~/.config/switchers/colorschemes/Gruvbox/waybar/style.css ~/.config/waybar/
+
+	pkill swaync
+	swaync &
+
+	notify-send "Switching Theme" "Theme switched to $THEME"
 
 	awww img ~/Wallpapers/gruvbox/Vibing.png --transition-fps=60 --transition-pos=0.854,0.977 --transition-type=outer ;;
 
@@ -25,7 +31,8 @@ case "$THEME" in
    	cp ~/.config/switchers/colorschemes/Gruvbox-Noir/kitty/colors.conf ~/.config/kitty/colors/custom
 
 	#change colors for rofi
-	cp ~/.config/switchers/colorschemes/Gruvbox-Noir/rofi/colors.rasi ~/.config/rofi/colors/  
+	cp ~/.config/switchers/colorschemes/Gruvbox-Noir/rofi/colors.rasi ~/.config/rofi/colors/ 
+	cp ~/.config/switchers/colorschemes/Gruvbox-Noir/rofi/style-2.rasi ~/.config/rofi/
 
 	#change colors and style for swaync
 	cp ~/.config/switchers/colorschemes/Gruvbox-Noir/swaync/colors.css ~/.config/swaync/
@@ -35,7 +42,40 @@ case "$THEME" in
 	cp ~/.config/switchers/colorschemes/Gruvbox-Noir/waybar/colors.css ~/.config/waybar/
 	cp ~/.config/switchers/colorschemes/Gruvbox-Noir/waybar/style.css ~/.config/waybar/
 
-	awww img ~/Wallpapers/gruvbox-noir/SuguruGeto.png --transition-fps=60 --transition-pos=0.854,0.977 --transition-type=outer ;;
+	pkill swaync
+	swaync &
+
+	notify-send "Switching Theme" "Theme switched to $THEME"
+
+	awww img ~/Wallpapers/gruvbox-noir/Kenjaku.png --transition-fps=60 --transition-pos=0.854,0.977 --transition-type=outer ;;
+
+    nord)
+
+	#change colors for kitty
+   	cp ~/.config/switchers/colorschemes/Nord/kitty/colors.conf ~/.config/kitty/colors/custom
+
+	#change colors for rofi
+	cp ~/.config/switchers/colorschemes/Nord/rofi/colors.rasi ~/.config/rofi/colors/  
+	cp ~/.config/switchers/colorschemes/Nord/rofi/style-2.rasi ~/.config/rofi/
+
+
+	#change colors and style for swaync
+	cp ~/.config/switchers/colorschemes/Nord/swaync/colors.css ~/.config/swaync/
+	cp ~/.config/switchers/colorschemes/Nord/swaync/style.css ~/.config/swaync/
+
+	#change colors and style for waybar
+	cp ~/.config/switchers/colorschemes/Nord/waybar/colors.css ~/.config/waybar/
+	cp ~/.config/switchers/colorschemes/Nord/waybar/style.css ~/.config/waybar/
+
+	pkill swaync
+	swaync &
+
+	notify-send "Switching Theme" "Theme switched to $THEME"
+
+	awww img ~/Wallpapers/nord/Totoro.png --transition-fps=60 --transition-pos=0.854,0.977 --transition-type=outer ;;
+
+   *)
+	notify-send "Invalid" "Error: No theme selection"
 
 
 esac
@@ -43,9 +83,6 @@ esac
 
 pkill waybar
 waybar &
-
-pkill swaync
-swaync &
 
 # Kitty — signal all running instances to reload
 kill -SIGUSR1 $(pidof kitty)

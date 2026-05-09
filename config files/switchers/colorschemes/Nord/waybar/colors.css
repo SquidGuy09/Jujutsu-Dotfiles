@@ -1,0 +1,25 @@
+/* theme: nord */
+
+/* Polar Night */
+@define-color pn_1 #2e3440;
+@define-color pn_2 #3b4252;
+@define-color pn_3 #434c5e;
+@define-color pn_4 #4c566a;
+
+/* Snow Storm */
+@define-color ss_1 #d8dee9;
+@define-color ss_2 #e5e9f0;
+@define-color ss_3 #eceff4;
+
+/* Frost */
+@define-color fr_1 #8fbcbb;
+@define-color fr_2 #88c0d0;
+@define-color fr_3 #81a1c1;
+@define-color fr_4 #5e81ac;
+
+/* Aurora */
+@define-color    red #bf616a;
+@define-color orange #d08770;
+@define-color yellow #ebcb8b;
+@define-color green  #a3be8c;
+@define-color purple #b48ead;

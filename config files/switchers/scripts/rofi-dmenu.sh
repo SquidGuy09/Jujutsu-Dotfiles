@@ -17,11 +17,11 @@ case "$SELECTED" in
 
 THEME=$(grep "theme:" ~/.config/waybar/colors.css | sed 's/\/\* theme: //;s/ \*\///')
 
-WALLPAPERS=$(ls ~/Wallpapers/$THEME/)
+WALLPAPERS=$(ls ~/Wallpapers/$THEME/ | sed 's/\.[^.]*$//')
 
 SELECTED2=$(echo "$WALLPAPERS" | rofi -dmenu -theme ~/.config/rofi/style-2.rasi)
 
-awww img ~/Wallpapers/$THEME/$SELECTED2 --transition-fps=60 --transition-type=wipe
+awww img ~/Wallpapers/$THEME/"$SELECTED2".* --transition-fps=60 --transition-type=wipe
   ;;
 
 " Layout")
